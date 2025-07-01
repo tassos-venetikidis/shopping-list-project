@@ -69,7 +69,8 @@ function filterItems(e) {
   const filterInputText = e.target.value.toLowerCase();
   for (const item of items) {
     const itemText = item.firstChild.textContent.toLowerCase();
-    if (itemText.indexOf(filterInputText) !== -1) {
+    // if (itemText.indexOf(filterInputText) !== -1) {
+    if (itemText.includes(filterInputText)) {
       item.style = "";
     } else {
       item.style = "display: none;";
