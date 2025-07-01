@@ -64,10 +64,24 @@ function checkUI() {
   }
 }
 
+function filterItems(e) {
+  const items = itemList.children;
+  const filterInputText = e.target.value.toLowerCase();
+  for (const item of items) {
+    const itemText = item.firstChild.textContent.toLowerCase();
+    if (itemText.indexOf(filterInputText) !== -1) {
+      item.style = "";
+    } else {
+      item.style = "display: none;";
+    }
+  }
+}
+
 // EVENT LISTENERS
 
 itemForm.addEventListener("submit", addItem);
 itemList.addEventListener("click", removeItem);
 clearButton.addEventListener("click", clearItems);
+filterInput.addEventListener("input", filterItems);
 
 checkUI();
